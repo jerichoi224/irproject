@@ -23,34 +23,6 @@ public class Main {
     final static String _file = "npl.txt";
     final static String _judgment = "npl-judgements.txt";
 
-    /*
-    private static void interactiveSearch(String method) throws IOException {
-        Searcher searcher = new Searcher(_indexPath);
-        Evaluate.setSimilarity(searcher, method);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        System.out.println("Type text to search, blank to quit.");
-        System.out.print("> ");
-        String input;
-        while ((input = br.readLine()) != null && !input.equals("")) {
-            SearchResult result = searcher.search(input);
-            ArrayList<ResultDoc> results = result.getDocs();
-            int rank = 1;
-            if (results.size() == 0)
-                System.out.println("No results found!");
-            for (ResultDoc rdoc : results) {
-                System.out.println("\n------------------------------------------------------");
-                System.out.println(rank + ". " + rdoc.title());
-                System.out.println("------------------------------------------------------");
-                System.out.println(result.getSnippet(rdoc)
-                        .replaceAll("\n", " "));
-                ++rank;
-            }
-            System.out.print("> ");
-        }
-    }
-*/
-    ////This makes it easier for you to run the evaluation
     static BufferedReader in;
 
     public static void main(String[] args) throws IOException {
@@ -99,43 +71,12 @@ public class Main {
             }
         }
 
-        // Rank the documents
-        int best_index = -1, best_count = 0;
-        Map<Integer, Integer> ranking = new HashMap<Integer, Integer>();
-        for (String word : context.replace(".", "").toLowerCase().split(" ")) {
-            if (collection.get(word) == null)
-                continue;
-            for (int a : collection.get(word)) {
-                if (ranking.get(a) == null) {
-                    ranking.put(a, 1);
-                    if (best_count == 0) {
-                        best_count = 1;
-                        best_index = a;
-                    }
-                } else {
-                    ranking.put(a, ranking.get(a) + 1);
-                    if (best_count < ranking.get(a)) {
-                        best_count = ranking.get(a);
-                        best_index = a;
-                    }
-                }
-            }
-        }
-
-        System.out.println(collection_index.get(best_index));
+        Indexer.index(_prefix + _indexPath, _prefix, _file);
+        int best_match = new Evaluate().search("--jm", _prefix + _indexPath, context);
+        System.out.println(collection.get(best_match));
     }
 
     static String removeTags(String htmlString) {
         return htmlString.replaceAll("\\<.*?>", "");
-
     }
-    //To create the index
-    //NOTE: you need to create the index once, and you cannot call this function twice without removing the existing index files
-    //Indexer.index(_prefix + _indexPath, _prefix, _file);
-
-    //Interactive searching function with your selected ranker
-    //NOTE: you have to create the index before searching!
-    //new Evaluate().evaluate("--ok", _prefix + _indexPath, _prefix + _judgment);;
-
-
 }

@@ -64,13 +64,21 @@ public class Evaluate {
 		System.out.println("\t--bdp\tBoolean Dot Product");
 	}
 
+	public int search(String method, String indexPath, String query)
+    {
+        _searcher = new Searcher(indexPath);
+        setSimilarity(_searcher, method);
+        ArrayList<ResultDoc> results = _searcher.search(query).getDocs();
+        return results.get(0).id();
+    }
+
 	//Please implement P@K, MRR and NDCG accordingly
 	public void evaluate(String method, String indexPath, String judgeFile) throws IOException {
 		_searcher = new Searcher(indexPath);		
 		setSimilarity(_searcher, method);
 		
 		String line = null, judgement = null;
-		int k = 10;
+		int k = 0;
 		double max = 0;
 		double maxb = 0;
 		double maxk = 0;
