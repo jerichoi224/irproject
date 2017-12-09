@@ -13,7 +13,6 @@ import org.apache.lucene.search.similarities.DefaultSimilarity;
 import edu.virginia.cs.index.ResultDoc;
 import edu.virginia.cs.index.Searcher;
 import edu.virginia.cs.index.similarities.*;
-import sun.util.resources.cldr.ssy.CalendarData_ssy_ER;
 
 public class Evaluate {
 	/**

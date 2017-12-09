@@ -71,6 +71,7 @@ public class Main {
   
 		////This makes it easier for you to run the evaluation
 		public static void main(String[] args) throws IOException {
+			System.out.println("Hello world");
 		//To create the index
 		//NOTE: you need to create the index once, and you cannot call this function twice without removing the existing index files
 		//Indexer.index(_prefix + _indexPath, _prefix, _file);
