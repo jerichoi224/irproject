@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c22b5e-9e45-490a-b9e0-7a5b2507cb02" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/_0.cfe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/_0.cfs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/_0.si" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/segments.gen" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/segments_1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/npl-judgements.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/npl.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/runners/Main.class" afterPath="$PROJECT_DIR$/bin/runners/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/def-index/_0.cfe" afterPath="$PROJECT_DIR$/data/def-index/_0.cfe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/def-index/_0.cfs" afterPath="$PROJECT_DIR$/data/def-index/_0.cfs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/def-index/_0.si" afterPath="$PROJECT_DIR$/data/def-index/_0.si" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java" afterPath="$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" afterPath="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/rel_words.txt" afterPath="$PROJECT_DIR$/data/rel_words.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/runners/Main.java" afterPath="$PROJECT_DIR$/src/runners/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -35,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/runners/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state relative-caret-position="93">
+              <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#840#848#0" expanded="true" />
@@ -49,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Indexer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Indexer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="78" column="14" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="78" selection-end-column="14" />
+            <state relative-caret-position="281">
+              <caret line="83" column="23" lean-forward="false" selection-start-line="83" selection-start-column="23" selection-end-line="84" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -88,12 +83,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Call</find>
-      <find>CallableWithSort</find>
-      <find>runner</find>
-      <find>Executaion</find>
-      <find>Index</find>
-      <find>Length</find>
       <find>Query</find>
       <find>QueryText</find>
       <find>QueryParse</find>
@@ -117,7 +106,13 @@
       <find>check1</find>
       <find>replace</find>
       <find>read</find>
+      <find>Creating</find>
+      <find>query</find>
       <find>index</find>
+      <find>curr_data</find>
+      <find>best_match</find>
+      <find>def_index</find>
+      <find>q</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,9 +137,9 @@
         <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/similarities/OkapiBM25.java" />
         <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/similarities/DirichletPrior.java" />
         <option value="$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java" />
+        <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" />
         <option value="$PROJECT_DIR$/data/rel_words.txt" />
         <option value="$PROJECT_DIR$/src/runners/Main.java" />
-        <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" />
       </list>
     </option>
   </component>
@@ -184,6 +179,11 @@
             <path>
               <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="irproject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irproject" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
@@ -391,12 +391,12 @@
       <workItem from="1511050869607" duration="2451000" />
       <workItem from="1512162599233" duration="408000" />
       <workItem from="1512537380615" duration="86000" />
-      <workItem from="1512842707122" duration="12826000" />
+      <workItem from="1512842707122" duration="17044000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55490000" />
+    <option name="totallyTimeSpent" value="59708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -409,7 +409,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31411764" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41764706" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38352942" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -845,10 +845,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/rel_words.txt">
+    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        <state relative-caret-position="281">
+          <caret line="83" column="23" lean-forward="false" selection-start-line="83" selection-start-column="23" selection-end-line="84" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -861,23 +861,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/rel_words.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/runners/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        <state relative-caret-position="93">
+          <caret line="37" column="50" lean-forward="false" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#840#848#0" expanded="true" />
             <element signature="e#903#911#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="78" column="14" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="78" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>

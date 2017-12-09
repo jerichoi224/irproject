@@ -31,11 +31,11 @@ public class Main {
         ArrayList<String> rel_words = new ArrayList<String>();
 
         String[] parsed;
-        int index = 0, def_num = 0;
+        int index = 0, def_num = 0, def_index;
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter your Sentence: ");
         String context = keyboard.nextLine();
-        System.out.print("Enter your search term: (enter \"q\" to quit): ");
+        System.out.print("Enter your search term: ");
         String query = keyboard.nextLine();
         URL url = new URL("http://www.dictionary.com/browse/" + query.toLowerCase());
         in = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -69,51 +69,86 @@ public class Main {
         // initial File
         updateFile(_prefix + _file, rel_words);
 
-        // Index for Thesaurus
+        try {
+            // Index for Thesaurus
+            Indexer.index(_prefix + _indexPath, _prefix, _file);
+
+            // Parse Thesaurus.com and Match Definition
+            url = new URL("http://www.thesaurus.com/browse/" + query.toLowerCase());
+            in = new BufferedReader(new InputStreamReader(url.openStream()));
+            String check1 = "";
+            def_index = 0;
+            nextLine = in.readLine();
+            while (true) {
+                if ((nextLine = in.readLine()) == null)
+                    break;
+                if (nextLine.contains("class=\"ttl\""))
+                    if (!removeTags(nextLine).trim().equals(check1)) {
+                        check1 = removeTags(nextLine).trim();
+                        continue;
+                    } else {
+                        if (check1.replaceAll("\\s", "").equals(""))
+                            continue;
+                        check1 = check1.replaceAll(",", "");
+                        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, check1);
+                        if (best_match.size() == 0)
+                            continue;
+                        def_index = best_match.get(0).id();
+                        while (true) {
+                            nextLine = in.readLine();
+                            if (nextLine.contains("Antonyms"))
+                                break;
+                            String temp = removeTags(nextLine).trim().toLowerCase();
+                            if (!temp.equals(""))
+                                rel_words.set(def_index, rel_words.get(def_index) + " " + temp.substring(0, temp.lastIndexOf("star")));
+                        }
+
+                    }
+            }
+
+            // Update Text file
+            updateFile(_prefix + _file, rel_words);
+        } catch (Exception e){}
+
+        deleteDir(new File(_prefix + _indexPath)); // Delete Previous Index
+
+        // Index for Oxford
         Indexer.index(_prefix + _indexPath, _prefix, _file);
 
-        // Parse Thesaurus.com and Match Definition
-        url = new URL("http://www.thesaurus.com/browse/" + query.toLowerCase());
+        // Parse Oxford Dictionary and Match Definition
+        url = new URL("https://en.oxforddictionaries.com/definition/" + query.toLowerCase());
         in = new BufferedReader(new InputStreamReader(url.openStream()));
-        String check1 = "";
-        int def_index = 0;
         nextLine = in.readLine();
+        String ox_def, ox_data;
+        int curr_ind = 0, next_ind = 0;
         while (true) {
             if ((nextLine = in.readLine()) == null)
                 break;
-            if (nextLine.contains("class=\"ttl\""))
-                if (!removeTags(nextLine).trim().equals(check1)) {
-                    check1 = removeTags(nextLine).trim();
-                    continue;
-                } else {
-                    if(check1.replaceAll("\\s", "").equals(""))
-                        continue;
-                    check1 = check1.replaceAll(",","");
-                    ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, check1);
-                    if(best_match.size() == 0)
+            if (nextLine.contains("class=\"ind\"")) {
+                next_ind = nextLine.indexOf("class=\"ind\"");
+                while (nextLine.substring(next_ind + 1, nextLine.length()).contains("class=\"ind\"")) {
+                    curr_ind = next_ind;
+                    next_ind = nextLine.indexOf("class=\"ind\"", next_ind + 1);// +12, -6
+
+                    String curr_data = removeTags(nextLine.substring(curr_ind + 12, next_ind - 6));
+                    curr_data = curr_data.toLowerCase().replaceAll("[^a-z ]", "");
+                    ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, curr_data);
+                    if (best_match.size() == 0)
                         continue;
                     def_index = best_match.get(0).id();
-                    while (true) {
-                        nextLine = in.readLine();
-                        if (nextLine.contains("Antonyms"))
-                            break;
-                        String temp = removeTags(nextLine).trim();
-                        if (!temp.equals(""))
-                            rel_words.set(def_index, rel_words.get(def_index) + " " + temp.substring(0, temp.lastIndexOf("star")));
-                    }
-
+                    rel_words.set(def_index, rel_words.get(def_index) + " " + curr_data);
                 }
+            }
         }
 
         // Update Text file
         updateFile(_prefix + _file, rel_words);
-
         deleteDir(new File(_prefix + _indexPath)); // Delete Previous Index
 
         Indexer.index(_prefix + _indexPath, _prefix, _file);
-        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, context);
+        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, context.toLowerCase().replaceAll("[^a-z ]", ""));
         for (int i = 0; i < Math.min(10, best_match.size()); i++) {
-            System.out.println((i+1) + ". " + definitions.get(best_match.get(i).id()).trim());
+            System.out.println((i + 1) + ". " + definitions.get(best_match.get(i).id()).trim());
         }
     }
 
