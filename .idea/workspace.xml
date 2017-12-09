@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23c22b5e-9e45-490a-b9e0-7a5b2507cb02" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/_0.cfe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/_0.cfs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/_0.si" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/segments.gen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/lucene-npl-index/segments_1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/npl-judgements.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/npl.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java" afterPath="$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" afterPath="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/runners/Main.java" afterPath="$PROJECT_DIR$/src/runners/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -15,18 +25,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SpecialAnalyzer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/SpecialAnalyzer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/runners/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+            <state relative-caret-position="183">
+              <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#890#898#0" expanded="true" />
-                <element signature="e#966#994#0" expanded="true" />
-                <element signature="e#2518#2527#0" expanded="true" />
-                <element signature="e#3008#3009#0" expanded="true" />
-                <element signature="e#3067#3068#0" expanded="true" />
+                <element signature="e#840#848#0" expanded="true" />
+                <element signature="e#903#911#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Indexer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="78" column="14" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="78" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Searcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Searcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="186" column="26" lean-forward="false" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -35,11 +74,11 @@
       <file leaf-file-name="Evaluate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+            <state relative-caret-position="299">
+              <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
               <folding>
-                <element signature="e#788#796#0" expanded="true" />
-                <element signature="e#889#897#0" expanded="true" />
+                <element signature="e#820#828#0" expanded="true" />
+                <element signature="e#921#929#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,16 +88,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Scoring</find>
-      <find>setSimiliart</find>
-      <find>coring</find>
-      <find>setSimilarity</find>
-      <find>setsimilari</find>
-      <find>Score</find>
-      <find>serach</find>
-      <find>TopDocs Search(</find>
-      <find>score</find>
-      <find>TopDocs search(</find>
       <find>Call</find>
       <find>CallableWithSort</find>
       <find>runner</find>
@@ -71,7 +100,6 @@
       <find>QueryParserbase</find>
       <find>QueryParser</find>
       <find>hits</find>
-      <find>analyzer</find>
       <find>S</find>
       <find>ystem.ou</find>
       <find>synthesis</find>
@@ -79,6 +107,17 @@
       <find>evaluate</find>
       <find>1</find>
       <find>search</find>
+      <find>analyzer</find>
+      <find>parsed</find>
+      <find>bent</find>
+      <find>.add</find>
+      <find>sustain</find>
+      <find>enterta</find>
+      <find>admit</find>
+      <find>check1</find>
+      <find>replace</find>
+      <find>read</find>
+      <find>index</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -103,7 +142,9 @@
         <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/similarities/OkapiBM25.java" />
         <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/similarities/DirichletPrior.java" />
         <option value="$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java" />
+        <option value="$PROJECT_DIR$/data/rel_words.txt" />
         <option value="$PROJECT_DIR$/src/runners/Main.java" />
+        <option value="$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java" />
       </list>
     </option>
   </component>
@@ -143,17 +184,6 @@
             <path>
               <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="irproject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irproject" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irproject" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="lucene-npl-index" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="irproject" type="b2602c69:ProjectViewProjectNode" />
@@ -361,16 +391,15 @@
       <workItem from="1511050869607" duration="2451000" />
       <workItem from="1512162599233" duration="408000" />
       <workItem from="1512537380615" duration="86000" />
-      <workItem from="1512842707122" duration="3726000" />
+      <workItem from="1512842707122" duration="12826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46390000" />
+    <option name="totallyTimeSpent" value="55490000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -380,7 +409,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31411764" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1517647" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41764706" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -414,28 +443,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runners/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -482,11 +489,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -526,11 +530,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -573,11 +574,8 @@
           <caret line="64" column="9" lean-forward="false" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -627,11 +625,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -642,11 +637,8 @@
           <caret line="54" column="28" lean-forward="false" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -696,11 +688,8 @@
           <caret line="26" column="48" lean-forward="false" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,11 +700,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -726,11 +712,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -739,20 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="45" column="15" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/SpecialAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -839,16 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Searcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1457">
-          <caret line="156" column="17" lean-forward="true" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/npl.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -859,27 +818,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/evaluator/Evaluate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
+        <state relative-caret-position="299">
+          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
           <folding>
-            <element signature="e#788#796#0" expanded="true" />
-            <element signature="e#889#897#0" expanded="true" />
+            <element signature="e#820#828#0" expanded="true" />
+            <element signature="e#921#929#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/NumberFormatException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Searcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="186" column="26" lean-forward="false" selection-start-line="186" selection-start-column="26" selection-end-line="186" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/rel_words.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="12" lean-forward="false" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/SpecialAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="31" column="30" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/runners/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+        <state relative-caret-position="183">
+          <caret line="74" column="26" lean-forward="false" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#890#898#0" expanded="true" />
-            <element signature="e#966#994#0" expanded="true" />
-            <element signature="e#2518#2527#0" expanded="true" />
-            <element signature="e#3008#3009#0" expanded="true" />
-            <element signature="e#3067#3068#0" expanded="true" />
+            <element signature="e#840#848#0" expanded="true" />
+            <element signature="e#903#911#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/virginia/cs/index/Indexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="78" column="14" lean-forward="false" selection-start-line="77" selection-start-column="13" selection-end-line="78" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>

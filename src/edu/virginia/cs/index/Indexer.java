@@ -57,7 +57,7 @@ public class Indexer {
     public static void index(String indexPath, String prefix, String fileList)
             throws IOException {
 
-        System.out.println("Creating Lucene index...");
+        //System.out.println("Creating Lucene index...");
 
         FieldType _contentFieldType = new FieldType();
         _contentFieldType.setIndexed(true);
@@ -75,10 +75,10 @@ public class Indexer {
             writer.addDocument(doc);
 
             ++indexed;
-            if (indexed % 100 == 0)
-                System.out.println(" -> indexed " + indexed + " docs...");
+//            if (indexed % 100 == 0)
+//                System.out.println(" -> indexed " + indexed + " docs...");
         }
-        System.out.println(" -> indexed " + indexed + " total docs.");
+        //System.out.println(" -> indexed " + indexed + " total docs.");
 
         br.close();
         writer.close();

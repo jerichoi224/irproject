@@ -3,6 +3,7 @@ package edu.virginia.cs.evaluator;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -64,12 +65,12 @@ public class Evaluate {
 		System.out.println("\t--bdp\tBoolean Dot Product");
 	}
 
-	public int search(String method, String indexPath, String query)
+	public ArrayList<ResultDoc> search(String method, String indexPath, String query)
     {
         _searcher = new Searcher(indexPath);
         setSimilarity(_searcher, method);
         ArrayList<ResultDoc> results = _searcher.search(query).getDocs();
-        return results.get(0).id();
+        return results;
     }
 
 	//Please implement P@K, MRR and NDCG accordingly
