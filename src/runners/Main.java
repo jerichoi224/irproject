@@ -35,40 +35,58 @@ public class Main {
         ArrayList<String> rel_words = new ArrayList<String>();
 
         String[] parsed;
-        int index = 0, def_num = 0, def_index;
+        int def_index;
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter your Sentence: ");
         String context = keyboard.nextLine().toLowerCase().replace("[^a-z ]", "");
         System.out.print("Enter your search term: ");
         String query = keyboard.nextLine().toLowerCase().replace("[^a-z ]", "");
-        String pos = getQueryPOS(context, query, keyboard);        
+        String posLong = getQueryPOS(context, query, keyboard);
+        String pos = "";
+        if(posLong.length() > 0) {
+	        if(posLong.charAt(0) == 'N') {
+	        	pos = "noun";
+	        } else if(posLong.charAt(0) == 'V') {
+	        	pos = "verb";
+	        } else if(posLong.charAt(0) == 'J') {
+	        	pos = "adjective";
+	        } else if(posLong.charAt(0) == 'R') {
+	        	pos = "adverb";
+	        }
+        }
+        
+        System.out.println(pos);
         
         URL url = new URL("http://www.dictionary.com/browse/" + query.toLowerCase());
         in = new BufferedReader(new InputStreamReader(url.openStream()));
 
         String inputLine, nextLine, data, def;
         nextLine = in.readLine();
+        boolean isCorrectPOS = false;
 
         // Build Basic Collection from Dictionary.com
         while (true) {
             inputLine = nextLine;
             if ((nextLine = in.readLine()) == null)
                 break;
-            if (inputLine.contains("def-number"))
-                def_num = Integer.parseInt(removeTags(inputLine).replace(".", "").trim());
-            if (inputLine.contains("def-content") && def_num <= 6) {
-                if (nextLine.contains("dbox-ex")) {
-                    parsed = removeTags(nextLine).toLowerCase().split(":");
-                    def = parsed[0];
-                    data = removeTags(nextLine).replace("  ", "");
-                } else {
-                    def = removeTags(nextLine).toLowerCase();
-                    data = def;
-                }
-                definitions.add(def);
-                data = data.trim().replace("[^a-z ]", "");
-                rel_words.add(data.trim() + " ");
-                // Parse Example Sentence into words
+            if(nextLine.contains("dbox-pg")) {
+            	isCorrectPOS = removeTags(nextLine).contains(pos);
+            }
+            if(isCorrectPOS) {
+	            if (inputLine.contains("def-content")) {
+	                if (nextLine.contains("dbox-ex")) {
+	                    parsed = removeTags(nextLine).toLowerCase().split(":");
+	                    def = parsed[0];
+	                    data = removeTags(nextLine).replace("  ", "");
+	                } else {
+	                    def = removeTags(nextLine).toLowerCase();
+	                    data = def;
+	                }
+	                definitions.add(def);
+	                data = data.trim().replace("[^a-z ]", "");
+	                rel_words.add(data.trim() + " ");
+	                // Parse Example Sentence into words
+	            }
             }
         }
         in.close();
@@ -153,7 +171,7 @@ public class Main {
 
         Indexer.index(_prefix + _indexPath3, _prefix, _file);
         ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath3, context.toLowerCase().replaceAll("[^a-z ]", ""));
-        for (int i = 0; i < Math.min(10, best_match.size()); i++) {
+        for (int i = 0; i < Math.min(3, best_match.size()); i++) {
             System.out.println((i + 1) + ". " + definitions.get(best_match.get(i).id()).trim());
         }
     }
@@ -171,12 +189,13 @@ public class Main {
     			if(split_context[i].equals(query)) {
     				query_indices.add(i);
     			}
+//    			System.out.println(split_context[i] + " : " + tags[i] + ", " + probs[i]);
     		}
     		if(query_indices.size() == 0) {
     			System.out.println("The search term was not found in the sentence.");
     			System.exit(0);
     		} else if(query_indices.size() == 1) {
-    			if(probs[query_indices.get(0)] > 0.75) {
+    			if(probs[query_indices.get(0)] > 0.9) {
     				pos = tags[query_indices.get(0)];
     			}
     		} else {
@@ -191,7 +210,7 @@ public class Main {
     			}
     			System.out.println();
     			int queryIndex = Integer.parseInt(keyboard.nextLine()) - 1;
-    			if(probs[query_indices.get(queryIndex)] > 0.75) {
+    			if(probs[query_indices.get(queryIndex)] > 0.9) {
     				pos = tags[query_indices.get(queryIndex)];
     			}
     		}
