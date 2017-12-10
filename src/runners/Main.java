@@ -3,6 +3,7 @@ package runners;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,19 +14,22 @@ import edu.virginia.cs.index.Indexer;
 import edu.virginia.cs.index.ResultDoc;
 import edu.virginia.cs.index.SearchResult;
 import edu.virginia.cs.index.Searcher;
+import opennlp.tools.postag.*;
 
-public class Main {
+public class Main {	
     //please keep those constants
-    final static String _indexPath = "def-index";
+    final static String _indexPath1 = "def-index1";
+    final static String _indexPath2 = "def-index2";
+    final static String _indexPath3 = "def-index3";    
     final static String _prefix = "data/";
     final static String _file = "rel_words.txt";
 
     static BufferedReader in;
 
     public static void main(String[] args) throws IOException {
-
-        deleteDir(new File(_prefix + _indexPath));
-        deleteDir(new File(_prefix + _file));
+    	
+        //deleteDir(new File(_prefix + _indexPath1));
+        //deleteDir(new File(_prefix + _file));
 
         ArrayList<String> definitions = new ArrayList<String>();
         ArrayList<String> rel_words = new ArrayList<String>();
@@ -34,9 +38,11 @@ public class Main {
         int index = 0, def_num = 0, def_index;
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter your Sentence: ");
-        String context = keyboard.nextLine();
+        String context = keyboard.nextLine().toLowerCase().replace("[^a-z ]", "");
         System.out.print("Enter your search term: ");
-        String query = keyboard.nextLine();
+        String query = keyboard.nextLine().toLowerCase().replace("[^a-z ]", "");
+        String pos = getQueryPOS(context, query, keyboard);        
+        
         URL url = new URL("http://www.dictionary.com/browse/" + query.toLowerCase());
         in = new BufferedReader(new InputStreamReader(url.openStream()));
 
@@ -71,7 +77,7 @@ public class Main {
 
         try {
             // Index for Thesaurus
-            Indexer.index(_prefix + _indexPath, _prefix, _file);
+            Indexer.index(_prefix + _indexPath1, _prefix, _file);
 
             // Parse Thesaurus.com and Match Definition
             url = new URL("http://www.thesaurus.com/browse/" + query.toLowerCase());
@@ -90,7 +96,7 @@ public class Main {
                         if (check1.replaceAll("\\s", "").equals(""))
                             continue;
                         check1 = check1.replaceAll(",", "");
-                        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, check1);
+                        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath1, check1);
                         if (best_match.size() == 0)
                             continue;
                         def_index = best_match.get(0).id();
@@ -110,10 +116,10 @@ public class Main {
             updateFile(_prefix + _file, rel_words);
         } catch (Exception e){}
 
-        deleteDir(new File(_prefix + _indexPath)); // Delete Previous Index
+        //deleteDir(new File(_prefix + _indexPath1)); // Delete Previous Index
 
         // Index for Oxford
-        Indexer.index(_prefix + _indexPath, _prefix, _file);
+        Indexer.index(_prefix + _indexPath2, _prefix, _file);
 
         // Parse Oxford Dictionary and Match Definition
         url = new URL("https://en.oxforddictionaries.com/definition/" + query.toLowerCase());
@@ -132,7 +138,7 @@ public class Main {
 
                     String curr_data = removeTags(nextLine.substring(curr_ind + 12, next_ind - 6));
                     curr_data = curr_data.toLowerCase().replaceAll("[^a-z ]", "");
-                    ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, curr_data);
+                    ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath2, curr_data);
                     if (best_match.size() == 0)
                         continue;
                     def_index = best_match.get(0).id();
@@ -143,13 +149,54 @@ public class Main {
 
         // Update Text file
         updateFile(_prefix + _file, rel_words);
-        deleteDir(new File(_prefix + _indexPath)); // Delete Previous Index
+        //deleteDir(new File(_prefix + _indexPath2)); // Delete Previous Index
 
-        Indexer.index(_prefix + _indexPath, _prefix, _file);
-        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath, context.toLowerCase().replaceAll("[^a-z ]", ""));
+        Indexer.index(_prefix + _indexPath3, _prefix, _file);
+        ArrayList<ResultDoc> best_match = new Evaluate().search("--jm", _prefix + _indexPath3, context.toLowerCase().replaceAll("[^a-z ]", ""));
         for (int i = 0; i < Math.min(10, best_match.size()); i++) {
             System.out.println((i + 1) + ". " + definitions.get(best_match.get(i).id()).trim());
         }
+    }
+    
+    public static String getQueryPOS(String context, String query, Scanner keyboard) throws IOException {
+    	String pos = "";
+    	try(InputStream modelIn = new FileInputStream("lib/en-pos-maxent.bin")) {
+    		POSModel model = new POSModel(modelIn);
+    		POSTaggerME tagger = new POSTaggerME(model);
+    		String split_context[] = context.split(" ");
+    		String tags[] = tagger.tag(split_context);
+    		double probs[] = tagger.probs();
+    		ArrayList<Integer> query_indices = new ArrayList<Integer>();
+    		for(int i = 0; i < split_context.length; i++) {
+    			if(split_context[i].equals(query)) {
+    				query_indices.add(i);
+    			}
+    		}
+    		if(query_indices.size() == 0) {
+    			System.out.println("The search term was not found in the sentence.");
+    			System.exit(0);
+    		} else if(query_indices.size() == 1) {
+    			if(probs[query_indices.get(0)] > 0.75) {
+    				pos = tags[query_indices.get(0)];
+    			}
+    		} else {
+    			System.out.println("Search term occurred multiple times in context, please specify which: ");
+    			int count = 1;
+    			for(int i = 0; i < split_context.length; i++) {
+    				if(split_context[i].equals(query)) {
+    					System.out.print(count + ".");
+    					count++;
+    				}
+    				System.out.print(split_context[i] + " ");
+    			}
+    			System.out.println();
+    			int queryIndex = Integer.parseInt(keyboard.nextLine()) - 1;
+    			if(probs[query_indices.get(queryIndex)] > 0.75) {
+    				pos = tags[query_indices.get(queryIndex)];
+    			}
+    		}
+     	} 
+    	return pos;
     }
 
     public static void updateFile(String filepath, ArrayList<String> rel_words) throws IOException {
@@ -163,7 +210,7 @@ public class Main {
         return htmlString.replaceAll("\\<.*?>", "");
     }
 
-    public static boolean deleteDir(File dir) {
+    public static boolean deleteDir(File dir) throws IOException {
         if (dir.isDirectory()) {
             String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
@@ -173,7 +220,7 @@ public class Main {
                 }
             }
         }
-        return dir.delete(); // The directory is empty now and can be deleted.
+        return Files.deleteIfExists(dir.toPath()); // The directory is empty now and can be deleted.
     }
 }
 
